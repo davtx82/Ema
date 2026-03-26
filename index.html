@@ -5,79 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ema | Real Estate Agent · San Antonio & Austin</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --gold: #b8975a; --gold-light: #d4b483; --dark: #0f0e0c;
-      --dark-2: #1a1814; --dark-3: #242219; --text: #e8e2d9;
-      --muted: #8a8070; --border: rgba(184,151,90,0.2);
+      --sky: #f7f2ea;
+      --warm-white: #fdfaf5;
+      --terra: #c4714a;
+      --terra-light: #e8956d;
+      --sage: #7a9e7e;
+      --sage-light: #a8c5ac;
+      --brown: #6b4c35;
+      --text: #2d2418;
+      --muted: #7a6a58;
+      --border: rgba(196,113,74,0.15);
+      --card-bg: #fff9f2;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; font-weight: 300; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(15,14,12,0.95), transparent); }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); }
-    .nav-cta { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); text-decoration: none; border: 1px solid var(--border); padding: 10px 24px; transition: all 0.3s; }
-    .nav-cta:hover { background: var(--gold); color: var(--dark); }
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 24px 80px; }
-    .hero-eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 92px); font-weight: 300; line-height: 1.05; margin-bottom: 16px; }
-    .hero-title em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px,3vw,24px); font-style: italic; color: var(--muted); margin-bottom: 48px; max-width: 500px; }
-    .hero-divider { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 48px; opacity: 0.5; }
-    .hero-desc { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 460px; margin-bottom: 56px; }
-    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-    .btn { display: inline-block; padding: 18px 40px; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; }
-    .btn-primary { background: var(--gold); color: var(--dark); }
-    .btn-primary:hover { background: var(--gold-light); }
-    .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--border); }
-    .btn-outline:hover { background: var(--gold); color: var(--dark); }
-    .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm-white); color: var(--text); }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(253,250,245,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--terra); letter-spacing: 1px; }
+    .nav-cta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-white); background: var(--terra); text-decoration: none; padding: 10px 24px; font-weight: 500; transition: all 0.3s; border-radius: 2px; }
+    .nav-cta:hover { background: var(--terra-light); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background:
+        linear-gradient(to bottom, rgba(253,250,245,0) 0%, rgba(253,250,245,0.6) 60%, var(--warm-white) 100%),
+        linear-gradient(160deg, #f0e8d5 0%, #e8d5b5 30%, #d4c4a0 50%, #c8bfa8 70%, #b8d4c0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Texas landscape silhouette */
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 180px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%23fdfaf5' fill-opacity='1' d='M0,180 L0,120 Q60,80 120,110 Q180,140 240,90 Q280,60 320,80 Q360,100 400,70 Q440,40 480,60 Q520,80 560,50 Q600,20 640,45 Q680,70 720,40 Q760,10 800,35 Q840,60 880,30 Q920,0 960,25 Q1000,50 1040,20 Q1080,-10 1120,15 Q1160,40 1200,60 Q1240,80 1280,55 Q1360,20 1440,50 L1440,180 Z'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: cover;
+    }
+
+    .hero-badge { display: inline-block; background: rgba(122,158,126,0.15); border: 1px solid rgba(122,158,126,0.3); color: var(--sage); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 32px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(44px, 7vw, 84px); font-weight: 400; line-height: 1.1; margin-bottom: 20px; color: var(--text); }
+    .hero-title em { font-style: italic; color: var(--terra); }
+    .hero-sub { font-size: 17px; line-height: 1.7; color: var(--muted); max-width: 480px; margin-bottom: 48px; font-weight: 300; }
+    .btn-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
+    .btn { display: inline-block; padding: 16px 36px; font-size: 13px; letter-spacing: 1px; font-weight: 500; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; border-radius: 2px; }
+    .btn-primary { background: var(--terra); color: white; }
+    .btn-primary:hover { background: var(--terra-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,113,74,0.3); }
+    .btn-outline { background: transparent; color: var(--terra); border: 2px solid var(--terra); }
+    .btn-outline:hover { background: var(--terra); color: white; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--terra); padding: 28px 48px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
     .trust-item { text-align: center; }
-    .trust-number { font-family: 'Cormorant Garamond', serif; font-size: 34px; color: var(--gold); display: block; }
-    .trust-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
-    .section { max-width: 900px; margin: 0 auto; padding: 100px 32px; }
-    .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px,5vw,50px); font-weight: 300; line-height: 1.2; margin-bottom: 28px; }
-    .sec-title em { font-style: italic; color: var(--gold-light); }
-    .sec-body { font-size: 16px; line-height: 1.9; color: var(--muted); max-width: 620px; }
-    .dark-section { background: var(--dark-2); padding: 100px 32px; }
-    .dark-inner { max-width: 900px; margin: 0 auto; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1px; background: var(--border); margin-top: 56px; border: 1px solid var(--border); }
-    .card { background: var(--dark-2); padding: 40px 32px; }
-    .card-icon { font-size: 28px; margin-bottom: 20px; }
-    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--text); margin-bottom: 12px; }
-    .card-body { font-size: 14px; line-height: 1.7; color: var(--muted); }
+    .trust-number { font-family: 'Playfair Display', serif; font-size: 28px; color: white; display: block; }
+    .trust-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+    /* SECTIONS */
+    .section { max-width: 960px; margin: 0 auto; padding: 100px 32px; }
+    .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--terra); margin-bottom: 16px; font-weight: 500; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(30px,5vw,48px); font-weight: 400; line-height: 1.2; margin-bottom: 24px; }
+    .sec-title em { font-style: italic; color: var(--terra); }
+    .sec-body { font-size: 16px; line-height: 1.9; color: var(--muted); max-width: 600px; }
+
+    /* CARDS */
+    .light-section { background: var(--sky); padding: 100px 32px; }
+    .light-inner { max-width: 960px; margin: 0 auto; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; margin-top: 56px; }
+    .card { background: var(--card-bg); padding: 40px 32px; border: 1px solid var(--border); border-radius: 4px; transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(107,76,53,0.1); }
+    .card-icon { font-size: 32px; margin-bottom: 20px; }
+    .card-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text); margin-bottom: 12px; }
+    .card-body { font-size: 14px; line-height: 1.8; color: var(--muted); }
+
+    /* STEPS */
     .steps { display: flex; flex-direction: column; gap: 40px; margin-top: 56px; }
-    .step { display: flex; gap: 32px; }
-    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--border); line-height: 1; flex-shrink: 0; }
-    .step h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--text); margin-bottom: 8px; }
-    .step p { font-size: 14px; line-height: 1.7; color: var(--muted); }
-    .form-section { background: var(--dark-2); padding: 100px 32px; border-top: 1px solid var(--border); }
+    .step { display: flex; gap: 28px; align-items: flex-start; }
+    .step-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--terra); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; margin-top: 4px; }
+    .step h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text); margin-bottom: 8px; }
+    .step p { font-size: 14px; line-height: 1.8; color: var(--muted); }
+
+    /* FORM */
+    .form-section { background: var(--sky); padding: 100px 32px; border-top: 1px solid var(--border); }
     .form-wrap { max-width: 640px; margin: 0 auto; text-align: center; }
-    .form-desc { font-size: 15px; color: var(--muted); margin-bottom: 48px; line-height: 1.7; }
+    .form-desc { font-size: 16px; color: var(--muted); margin-bottom: 48px; line-height: 1.7; }
     form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
     .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    input, textarea, select { width: 100%; background: var(--dark-3); border: 1px solid var(--border); color: var(--text); padding: 16px 20px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; appearance: none; }
-    input::placeholder, textarea::placeholder { color: var(--muted); }
-    input:focus, textarea:focus, select:focus { border-color: var(--gold); }
-    select option { background: var(--dark-3); }
+    input, textarea, select { width: 100%; background: white; border: 1.5px solid #e0d5c5; color: var(--text); padding: 14px 18px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; appearance: none; border-radius: 3px; transition: border-color 0.3s; }
+    input::placeholder, textarea::placeholder { color: #b0a090; }
+    input:focus, textarea:focus, select:focus { border-color: var(--terra); }
     textarea { resize: vertical; min-height: 120px; }
-    .submit { width: 100%; background: var(--gold); color: var(--dark); padding: 18px; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; font-weight: 500; border: none; cursor: pointer; margin-top: 8px; }
-    .submit:hover { background: var(--gold-light); }
+    .submit { width: 100%; background: var(--terra); color: white; padding: 18px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; border: none; cursor: pointer; margin-top: 8px; border-radius: 3px; transition: all 0.3s; }
+    .submit:hover { background: var(--terra-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,113,74,0.3); }
     .note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; }
-    .success { display: none; padding: 48px; border: 1px solid var(--border); }
-    .success h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); margin-bottom: 12px; }
-    .success p { color: var(--muted); }
-    footer { padding: 40px 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); }
-    .footer-copy { font-size: 12px; color: var(--muted); }
+    .success { display: none; padding: 48px; border: 2px solid var(--border); border-radius: 4px; background: white; }
+    .success h3 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--terra); margin-bottom: 12px; }
+    .success p { color: var(--muted); font-size: 15px; }
+
+    /* FOOTER */
+    footer { background: var(--brown); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--terra-light); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.5); }
+
     @media (max-width: 600px) {
-      nav { padding: 20px 24px; }
-      .trust-bar { gap: 32px; padding: 32px 24px; }
+      nav { padding: 16px 20px; }
+      .trust-bar { gap: 32px; padding: 28px 20px; }
       .row { grid-template-columns: 1fr; }
       .btn-row { flex-direction: column; align-items: center; }
       footer { flex-direction: column; text-align: center; }
-      .step { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -85,61 +131,80 @@
 
   <nav>
     <div class="nav-logo">Ema</div>
-    <a href="#connect" class="nav-cta">Let's Connect</a>
+    <a href="#connect" class="nav-cta">Let's Talk</a>
   </nav>
 
   <section class="hero">
-    <p class="hero-eyebrow">Real Estate Agent · San Antonio & Austin</p>
-    <h1 class="hero-title">Your Home.<br><em>Your Next Chapter.</em></h1>
-    <p class="hero-sub">Buying or selling — you deserve an agent who actually fights for you.</p>
-    <div class="hero-divider"></div>
-    <p class="hero-desc">From first homes to luxury estates and Texas ranch land, Ema brings personal attention, local expertise, and relentless advocacy to every transaction.</p>
+    <div class="hero-badge">San Antonio & Austin · SABOR Licensed</div>
+    <h1 class="hero-title">Find Your Place<br>in <em>Texas</em></h1>
+    <p class="hero-sub">Buying or selling — you deserve an agent who knows this land, loves this state, and fights for you like family.</p>
     <div class="btn-row">
-      <a href="#connect" class="btn btn-primary">I'm Buying</a>
-      <a href="#connect" class="btn btn-outline">I'm Selling</a>
+      <a href="#connect" class="btn btn-primary">I'm Ready to Buy</a>
+      <a href="#connect" class="btn btn-outline">I Want to Sell</a>
     </div>
   </section>
 
   <div class="trust-bar">
     <div class="trust-item"><span class="trust-number">Local</span><span class="trust-label">San Antonio & Austin</span></div>
-    <div class="trust-item"><span class="trust-number">Personal</span><span class="trust-label">1-on-1 Attention</span></div>
-    <div class="trust-item"><span class="trust-number">Results</span><span class="trust-label">Driven by You</span></div>
-    <div class="trust-item"><span class="trust-number">SABOR</span><span class="trust-label">Licensed & Trusted</span></div>
+    <div class="trust-item"><span class="trust-number">Personal</span><span class="trust-label">1-on-1 Every Step</span></div>
+    <div class="trust-item"><span class="trust-number">Trusted</span><span class="trust-label">Built on Referrals</span></div>
+    <div class="trust-item"><span class="trust-number">SABOR</span><span class="trust-label">Licensed & Proud</span></div>
   </div>
 
   <section class="section">
-    <p class="eyebrow">Who I Am</p>
-    <h2 class="sec-title">An agent who <em>shows up</em><br>for you completely</h2>
-    <p class="sec-body">I'm Ema — a licensed real estate agent serving buyers and sellers across the San Antonio and Austin markets. I built my business on referrals and repeat clients because I treat every transaction like it's my own family's home on the line. Whether you're a first-time buyer, upsizing, or ready to sell, I'm in your corner from the first conversation to closing day.</p>
+    <p class="eyebrow">About Ema</p>
+    <h2 class="sec-title">The agent who treats<br>your home like <em>her own</em></h2>
+    <p class="sec-body">I'm Ema — a licensed real estate agent with deep roots in the San Antonio and Austin markets. I built my business the old-fashioned way: by showing up, doing the work, and earning every referral. Whether you're buying your first home, upgrading to something special, or ready to sell and start fresh — I'm your person. Real estate in Texas is personal. I treat it that way.</p>
   </section>
 
-  <div class="dark-section">
-    <div class="dark-inner">
-      <p class="eyebrow">How I Can Help</p>
-      <h2 class="sec-title">Every kind of home,<br>every kind of <em>dream</em></h2>
+  <div class="light-section">
+    <div class="light-inner">
+      <p class="eyebrow">What I Do</p>
+      <h2 class="sec-title">Every home, every dream,<br><em>handled with care</em></h2>
       <div class="cards">
-        <div class="card"><div class="card-icon">🏠</div><h3 class="card-title">Buying a Home</h3><p class="card-body">I'll help you find the right home, negotiate hard on your behalf, and guide you through every step without the overwhelm.</p></div>
-        <div class="card"><div class="card-icon">📋</div><h3 class="card-title">Selling Your Home</h3><p class="card-body">Strategic pricing, smart marketing, and someone in your corner who knows how to get you the best possible outcome.</p></div>
-        <div class="card"><div class="card-icon">🌾</div><h3 class="card-title">Luxury & Ranch</h3><p class="card-body">High-end residential, farm and ranch properties — premium transactions handled with the discretion and expertise they deserve.</p></div>
+        <div class="card">
+          <div class="card-icon">🏡</div>
+          <h3 class="card-title">Buying a Home</h3>
+          <p class="card-body">I'll find you the right home, negotiate hard, and walk you through every step — especially if it's your first time.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔑</div>
+          <h3 class="card-title">Selling Your Home</h3>
+          <p class="card-body">Smart pricing, real marketing, and an agent who knows how to get you top dollar without the drama.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌾</div>
+          <h3 class="card-title">Luxury & Ranch</h3>
+          <p class="card-body">From Hill Country estates to Texas ranch land — premium properties deserve premium attention. That's what you get.</p>
+        </div>
       </div>
     </div>
   </div>
 
   <section class="section">
-    <p class="eyebrow">The Process</p>
-    <h2 class="sec-title">Simple from <em>start</em><br>to close</h2>
+    <p class="eyebrow">How It Works</p>
+    <h2 class="sec-title">Straightforward from<br><em>hello</em> to closing</h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><h3>Reach Out</h3><p>Fill out the form below or call me directly. No pressure, no scripts — just a real conversation about what you need.</p></div></div>
-      <div class="step"><div class="step-num">02</div><div><h3>We Make a Plan</h3><p>Whether you're buying or selling, I'll walk you through exactly what to expect and build a strategy around your goals.</p></div></div>
-      <div class="step"><div class="step-num">03</div><div><h3>I Go to Work</h3><p>You stay informed, I handle the details. From showings to negotiations to closing — I'm with you the whole way.</p></div></div>
+      <div class="step">
+        <div class="step-dot">1</div>
+        <div><h3>We Talk</h3><p>Reach out and we'll have a real conversation — no pressure, no pitch. Just me learning what you need.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <div><h3>We Make a Plan</h3><p>I'll map out exactly what to expect, what the market looks like, and how we get you where you want to go.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <div><h3>I Go to Work</h3><p>You stay in the loop, I handle the details. Showings, negotiations, paperwork — all the way to keys in hand.</p></div>
+      </div>
     </div>
   </section>
 
   <div class="form-section" id="connect">
     <div class="form-wrap">
       <p class="eyebrow">Get In Touch</p>
-      <h2 class="sec-title">Let's talk about<br>your <em>next move</em></h2>
-      <p class="form-desc">Buying, selling, or just exploring — I'd love to connect and learn about what you're looking for.</p>
+      <h2 class="sec-title">Ready to talk about<br>your <em>next move?</em></h2>
+      <p class="form-desc">Whether you're buying, selling, or just starting to think about it — I'd love to connect. No pressure, just a conversation.</p>
       <form id="contactForm">
         <div class="row">
           <input type="text" placeholder="Your Name" required />
@@ -151,17 +216,17 @@
           <option>Buy a Home</option>
           <option>Sell My Home</option>
           <option>Buy and Sell</option>
-          <option>Learn About the Market</option>
+          <option>Explore the Market</option>
           <option>Luxury or Ranch Property</option>
         </select>
-        <input type="text" placeholder="Area or Neighborhood You're Interested In" />
-        <textarea placeholder="Tell me more — timeline, budget, any questions?"></textarea>
+        <input type="text" placeholder="Area or Neighborhood You Have in Mind" />
+        <textarea placeholder="Tell me a little more — timeline, budget, any questions at all?"></textarea>
         <button type="submit" class="submit">Send My Message</button>
-        <p class="note">I respond personally, typically within a few hours.</p>
+        <p class="note">I respond personally — usually within a few hours.</p>
       </form>
       <div class="success" id="successMsg">
-        <h3>Thank you.</h3>
-        <p>I'll be in touch soon — look for a personal response from Ema directly.</p>
+        <h3>Got it — thank you!</h3>
+        <p>I'll be in touch soon. Look for a personal message from Ema directly.</p>
       </div>
     </div>
   </div>
